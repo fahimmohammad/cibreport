@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign In</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/stylelg.css}" />
+    <link rel="shortcut icon" type="image/png" th:href="@{/icon/cityLogo.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="box-form">
+        <div class="left">
+            <img class="fit-picture"  th:src="@{/icon/cityLogo.png}" />
+            <h1>Welcome to The City Bank Limited.</h1>
+        </div>
+        <div class="right">
+            <h5>Login</h5>
+                <form method="post" th:action="@{/login}">
+                    <!-- Data Input-->
+                    <div class="inputs">
+                        <input type="text" name="user" id="User" class="form-control"  required style=" margin-bottom: 10px;" maxlength="100" autocomplete="off">
+                        <br>
+                        <input type="password" name="password" id="Password" class="form-control"   required style=" margin-bottom: 10px;" maxlength="30">
+                    </div>
+                    <!-- Angular  checkbox -->
+                    <div class="remember-me--forget-password">
+
+                        <label>
+                            <input type="checkbox" name="item" checked/>
+                            <span class="text-checkbox">Remember me</span>
+                        </label>
+                    </div>
+                    <br>
+                    <!-- Button -->
+                    <div>
+
+                        <button class="hover" type="submit" value="login">Login</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+</body>
+</html>
