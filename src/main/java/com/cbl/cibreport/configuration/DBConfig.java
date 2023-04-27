@@ -11,14 +11,14 @@ import javax.sql.DataSource;
 @Configuration
 public class DBConfig {
     @Bean(name = "firstDataSource")
-    @ConfigurationProperties("spring.firstDatasource")
+    @ConfigurationProperties("spring.firstdatasource")
     @Primary
     public DataSource dataSource1(){
         return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "secondDatasource")
-    @ConfigurationProperties("spring.secondDatasource")
+    @ConfigurationProperties("spring.seconddatasource")
     public DataSource dataSource2(){
         return DataSourceBuilder.create().build();
     }
