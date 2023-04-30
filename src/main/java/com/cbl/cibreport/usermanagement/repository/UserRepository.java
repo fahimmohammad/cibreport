@@ -20,13 +20,14 @@ public class UserRepository implements IUserRepository{
     public SecUser CheckUserLogin(String username, String password) {
         SecUser userdata = new SecUser();
         SimpleJdbcCall jdbcCall = new SimpleJdbcCall(firstDataSource).withProcedureName("sec_get_web_user");
-        SqlParameterSource in = new MapSqlParameterSource().addValue("p_username", username).addValue("p_username",password);
+        SqlParameterSource in = new MapSqlParameterSource().addValue("p_username", username).addValue("p_password",password);
 
         Map<String, Object> out = jdbcCall.execute(in);
         if (out.isEmpty())
            return userdata;
         else {
-            List<Object> record = (List<Object>) out.get("P_RECORDSET");
+            System.out.println(out);
+          /*  List<Object> record = (List<Object>) out.get("P_RECORDSET");
             // System.out.println(out.get("P_RECORDSET"));
             //System.out.println(record.get(0));
             for (Object data : record) {
@@ -36,7 +37,7 @@ public class UserRepository implements IUserRepository{
                 System.out.println(d.get("username"));
                 System.out.println(d.get("employeeId"));
 
-            }
+            }*/
             return userdata;
         }
     }
