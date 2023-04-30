@@ -6,14 +6,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
+import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 import java.util.List;
 import java.util.Map;
-
+@Service
 public class UserRepository implements IUserRepository{
-    @Qualifier("firstDataSource")
     @Autowired
+    @Qualifier("firstDataSource")
     private DataSource firstDataSource;
     @Override
     public SecUser CheckUserLogin(String username, String password) {
